@@ -1,0 +1,58 @@
+Name:
+N. S. Gulnar
+
+Role: 
+Frontend Developer
+
+Short Bio:
+A passionate Frontend Developer skilled in creating fully responsive and innovative websites. Dedicated to learning new technologies and collaborating on exciting projects. Let's build something amazing together!
+
+About:
+As a motivated self-taught Frontend Developer, proficient in React and Tailwind, I specialize in crafting responsive, and functional websites. Over the past 3 years, I've immersed myself in the programming world, building a strong foundation in languages like C, C++, and Java, which has empowered me with good problem-solving skills. With expertise in version control, I firmly believe in the power of collaboration, where productivity soars when all team members contribute their ideas. I enjoy debugging by delving into code, uncovering issues, and fixing them efficiently. Being a quick learner, I excel in the dynamic field of web development. I eagerly embrace mastering new frameworks and staying updated with industry trends to continuously expand my knowledge.
+
+Resume Link:
+https://drive.google.com/file/d/1e0dwmfnySwNArf9MHh3o5asqoO7Ao_ZY/view?usp=drive_link
+
+Email:
+nsgulnar123@gmail.com
+
+Linkedin URL:
+https://www.linkedin.com/in/nsgulnar/
+
+GitHub URL:
+https://github.com/NaimaGulnar
+
+
+Skills:
+HTML, CSS, JavaScript, Bootstrap, Tailwind CSS, React, Git, GitHub, Figma, C, C++, Java
+
+
+PROJECT 1:
+
+Project Name:
+DonorConnect
+
+Project Description:
+A comprehensive web platform designed to seamlessly connect blood donors with recipients. This platform facilitates easy user registration and blood request submissions. It features an email notification system for new requests, enabling faster donor responses. Additionally, a feedback mechanism rewards donors!
+
+Project GitHub Link:
+https://github.com/NaimaGulnar/DonorConnect
+
+Project Deployed Link:
+https://donorconnect.netlify.app/
+
+
+PROJECT 2:
+
+Project Name:
+FlavourFusion
+
+Project Description:
+I developed the menu page to be fully responsive, significantly improving user experience and mobile compatibility. Additionally, I resolved layout issues, ensuring seamless functionality. Furthermore, I led the migration from plain JavaScript to React, crafting a responsive landing page.
+
+Project GitHub Link:
+https://github.com/NaimaGulnar/Flavour-Fusion-ReactVersion
+
+Project Deployed Link:
+https://c4coderandcreator.github.io/Flavour-Fusion/
+
