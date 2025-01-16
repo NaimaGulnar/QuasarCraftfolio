@@ -1,6 +1,6 @@
 # CraftFolio
 
-CraftFolio is a portfolio generator app, which allows users to create a professional portfolio by inputting personal details, skills, and projects, and then downloading the generated portfolio as an HTML file. 
+CraftFolio is a portfolio generator app, which allows users to create a professional portfolio by inputting personal details, skills, and projects, and then downloading the generated portfolio as an HTML file.
 
 ## How it works
 
@@ -26,11 +26,13 @@ CraftFolio is a portfolio generator app, which allows users to create a professi
 ```
 
 **Start the app in development mode (hot-code reloading, error reporting, etc.)**
+
 ```bash
 quasar dev
 ```
 
 **Lint the files**
+
 ```bash
 yarn lint
 # or
@@ -38,6 +40,7 @@ npm run lint
 ```
 
 **Format the files**
+
 ```bash
 yarn format
 # or
@@ -45,6 +48,7 @@ npm run format
 ```
 
 **Build the app for production**
+
 ```bash
 quasar build
 ```
