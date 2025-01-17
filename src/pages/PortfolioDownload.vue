@@ -1,13 +1,19 @@
 <template>
+  <!-- Main container for the download page -->
   <q-page
     class="row wrap justify-center items-center"
     :style="{ background: 'linear-gradient(135deg, #060606, #525252)' }"
   >
+    <!-- This is for handling async operations and showing a fallback while loading. -->
     <Suspense>
+      <!-- Content displayed once the asynchronous operation has completed successfully. -->
       <template #default>
+        <!-- Card that displays message -->
         <q-card class="q-pa-xl" style="max-width: 400px; margin: auto">
           <q-card-section>
             <div class="text-h6 text-center">Your Portfolio is Ready!</div>
+
+            <!-- This button triggers the downloadPortfolio method which downloads the portfolio as an HTML file. -->
             <div class="text-center">
               <q-btn
                 label="Download Portfolio as HTML"
@@ -19,6 +25,7 @@
           </q-card-section>
         </q-card>
       </template>
+      <!-- Fallback content displayed while waiting for the async operation to complete -->
       <template #fallback>
         <div>Loading...</div>
       </template>
@@ -27,14 +34,26 @@
 </template>
 
 <script setup>
+// Importing reactive references and lifecycle hooks from Vue
 import { ref, onMounted } from "vue";
+// Import the defined Pinia store
 import { usePortfolioStore } from "src/stores/portfolioStore";
 
+// Accessing the portfolio store and the form data
 const portfolioStore = usePortfolioStore();
 const data = portfolioStore.formData;
 
+// Defining a reference for holding the generated HTML content
 const previewHtml = ref("");
 
+// Function to convert image file to a Base64 string
+/* 
+- Create a new FileReader instance to read the image file.
+- onloadend function is triggered once the FileReader successfully loads the file.
+- Extract the Base64 string from the result (split by comma and take the part after the comma).
+- onerror function is triggered if there's an error reading the file.
+- Start reading the image file as a data URL (Base64 encoding). 
+*/
 const convertImageToBase64 = (file) => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -44,14 +63,18 @@ const convertImageToBase64 = (file) => {
   });
 };
 
+// Function to generate the HTML content for the portfolio
 const generateHtml = async () => {
+  // Converting images to Base64 if they exist
   const imageBase64_1 = data.pImage1 ? await convertImageToBase64(data.pImage1) : "";
   const imageBase64_2 = data.pImage2 ? await convertImageToBase64(data.pImage2) : "";
 
+  // Splitting the skills string into an array of skills
   const skillsArray = data.skills
     ? data.skills.split(",").map((skill) => skill.trim())
     : [];
 
+  // Returning the HTML structure
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -695,23 +718,23 @@ const generateHtml = async () => {
         <h1 class="sub-title">My <span>Skills</span></h1>
         <section id="skills">
             ${skillsArray
-            .map(
-            (skill) => `
+              .map(
+                (skill) => `
             <div class="skill">
                 <h3 class="skill-heading">${skill}</h3>
             </div>
             `
-            )
-            .join("")}
+              )
+              .join("")}
         </section>
         <h1 class="sub-title">My <span>Projects</span></h1>
         <section class="projects" id="projects">
             <div class="project-card">
                 <div class="project-image">
                 ${
-                imageBase64_1
-                ? `<img src="data:image/jpeg;base64,${imageBase64_1}" alt="${data.pName1}" class="project-img" />`
-                : ""
+                  imageBase64_1
+                    ? `<img src="data:image/jpeg;base64,${imageBase64_1}" alt="${data.pName1}" class="project-img" />`
+                    : ""
                 }
                 </div>
                 <div class="project-content">
@@ -736,9 +759,9 @@ const generateHtml = async () => {
             <div class="project-card">
                 <div class="project-image">
                 ${
-                imageBase64_2
-                ? `<img src="data:image/jpeg;base64,${imageBase64_2}" alt="${data.pName2}" class="project-img"/>`
-                : ""
+                  imageBase64_2
+                    ? `<img src="data:image/jpeg;base64,${imageBase64_2}" alt="${data.pName2}" class="project-img"/>`
+                    : ""
                 }
                 </div>
                 <div class="project-content">
@@ -779,7 +802,7 @@ const generateHtml = async () => {
                 <a href="${data.githubURL}" target="_blank"
                     ><i class="bx bxl-github"></i
                     ></a>
-                <a href="${data.email}" target="_blank"
+                <a href="mailto:${data.email}" target="_blank"
                     ><i class="bx bx-envelope"></i
                     ></a>
                 </div>
@@ -817,10 +840,24 @@ const generateHtml = async () => {
 `;
 };
 
+// Lifecycle hook to generate the HTML when the component is mounted
+// Assign the generated HTML to the reference
 onMounted(async () => {
   previewHtml.value = await generateHtml();
 });
 
+// Function to trigger the download of the portfolio as an HTML file
+/* 
+- Create a new Blob object from the HTML content (previewHtml.value) with the MIME type 'text/html'.
+- A Blob represents the HTML content as a file-like object. 
+- Create a new anchor (<a>) element dynamically in the DOM.
+- Create a URL representing the Blob object and assign it to the 'href' attribute of the link.
+- This makes the Blob available for download as a file.
+- Set the 'download' attribute on the anchor element.
+- It uses 'portfolioStore.formData.name' to dynamically set the name of the downloaded file.
+- Programmatically trigger a click event on the link element.
+- This initiates the download process by triggering the download action.
+*/
 const downloadPortfolio = () => {
   const blob = new Blob([previewHtml.value], { type: "text/html" });
   const link = document.createElement("a");

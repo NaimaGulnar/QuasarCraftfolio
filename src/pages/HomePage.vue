@@ -1,11 +1,19 @@
 <template>
+  <!-- Main container for the home page -->
   <q-page class="homePage column wrap justify-center items-center text-center">
+    <!-- Display the application title -->
     <div class="main-heading q-mb-lg">CRAFTFOLIO</div>
+
+    <!-- Display the tagline -->
     <div class="subheading1 q-mb-lg">"Craft a portfolio that speaks for you!"</div>
+
+    <!-- Provide instructions -->
     <div class="subheading2 q-mb-xl">
       Enter your details, submit the form, and instantly download your Portfolio HTML
       file.
     </div>
+
+    <!-- Button to navigate to the form page -->
     <q-btn
       outline
       class="homePageBtn q-py-md q-px-xl hover-bg-opacity-80"
@@ -17,16 +25,20 @@
 </template>
 
 <script setup>
+// Import Vue Router for navigation
 import { useRouter } from "vue-router";
 
+// Initialize the router instance
 const router = useRouter();
 
+// Function to navigate to the form page
 const goToFormPage = () => {
   router.push({ path: "form" });
 };
 </script>
 
 <style scoped>
+/* Home page styling */
 .homePage {
   background: linear-gradient(135deg, #060606, #525252);
   min-height: 100vh;
@@ -62,6 +74,7 @@ const goToFormPage = () => {
   font-size: 1.2rem;
   font-weight: bold;
 }
+/* Media Queries */
 @media screen and (max-width: 1024px) {
   .main-heading {
     font-size: 4rem;

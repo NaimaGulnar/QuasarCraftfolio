@@ -8,7 +8,24 @@ CraftFolio is a portfolio generator app, which allows users to create a professi
 - **Download Portfolio:** After filling out the form, users can click the "Download" button to generate and download their portfolio as an HTML file.
 - **Demo Data:** To make the process easier, you can use the "demoData.txt" file with pre-filled data. Simply copy and paste the demo data into the form, then modify any specific details as needed before downloading your portfolio.
 
-## Installation
+## Technologies Used
+
+- **Frontend**:
+  - **Vue.js**: A progressive JavaScript framework for building user interfaces. It enables efficient, reactive data binding and component-based architecture, which helps in building dynamic applications.
+  - **Quasar Framework**: A powerful UI framework based on Material Design. It provides a wide range of components that make the development process faster and helps build responsive and polished interfaces.
+- **State Management**:
+
+  - **Pinia**: Pinia is the state management library for Vue 3. It replaces Vuex in Vue 3 applications, providing a more modern and efficient way to manage application state.
+
+- **Version Control**:
+
+  - **Git**: Used for version control to track changes in the codebase.
+  - **GitHub**: A cloud-based platform to host the code repository and facilitate collaboration.
+
+- **Package Management**:
+  - **npm**: Used to manage project dependencies and scripts.
+
+## Setup
 
 **Clone the Repository**
 
@@ -25,7 +42,7 @@ CraftFolio is a portfolio generator app, which allows users to create a professi
   npm install
 ```
 
-**Start the app in development mode (hot-code reloading, error reporting, etc.)**
+**Start the app in development mode**
 
 ```bash
 quasar dev
